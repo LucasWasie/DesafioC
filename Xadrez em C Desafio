@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h> // Para EXIT_SUCCESS
+
+/*Programado por Lucas Wasielewski da Silva*/
+
+#define MOVIMENTOS_TORRE 5
+#define MOVIMENTOS_RAINHA 8
+#define MOVIMENTOS_BISPO 5
+
+int main() {
+
+    int i; // Variável contadora
+
+    printf("=========================================\n");
+    printf("  MATECHECK: INICIANDO TESTES DE LOOPS\n");
+    printf("=========================================\n\n");
+
+
+    // 1. Teste 'for' (usando a Torre)
+
+    printf("Movimento: Torre (%d Direita) - [Teste com 'for']\n", MOVIMENTOS_TORRE);
+    for (i = 0; i < MOVIMENTOS_TORRE; i++) {
+        printf("Direita\n");
+    }
+
+    // 2. Teste 'while' (usando a Rainha)
+    
+    printf("\nMovimento: Rainha (%d Esquerda) - [Teste com 'while']\n", MOVIMENTOS_RAINHA);
+    
+    i = 0; // Reinicia o contador
+    while (i < MOVIMENTOS_RAINHA) {
+        printf("Esquerda\n");
+        i++;
+    }
+
+    // 3. Teste 'do...while' (usando o Bispo) ###
+    
+    printf("\nMovimento: Bispo (%d Diagonal) - [Teste com 'do...while']\n", MOVIMENTOS_BISPO);
+    
+    i = 0; // Reinicia o contador
+    do {
+        // Combinação de direções básicas (Cima + Direita)
+        printf("Cima\n");
+        printf("Direita\n");
+        i++;
+    } while (i < MOVIMENTOS_BISPO);
+
+
+    printf("\n\n=========================================\n");
+    printf("  MATECHECK: TESTES CONCLUÍDOS\n");
+    printf("=========================================\n");
+
+    return EXIT_SUCCESS;
