@@ -1,0 +1,164 @@
+#include <stdio.h>
+
+int main() {
+    int populacao1, populacao2, pontos_turisticos1, pontos_turisticos2;
+    float area1, area2, pib1, pib2, densidade1 = 0, densidade2 = 0, pib_per_capita1 = 0, pib_per_capita2 = 0;
+    char pais1[30], pais2[30];
+
+    // Placar
+    int pontos_pais1 = 0;
+    int pontos_pais2 = 0;
+
+    printf("Programado por: Lucas Wasielewski da Silva\n\n");
+    printf("=== DESAFIO SUPERTRUNFO ===\n\n");
+    printf("--- DADOS DO PAÍS 1 ---\n");
+
+    printf("Digite o nome do País: ");
+    scanf(" %[^\n]", pais1);
+
+    printf("Digite a População: ");
+    scanf("%d", &populacao1);
+
+    printf("Digite a Área (em km²): ");
+    scanf("%f", &area1);
+
+    printf("Digite o PIB (em dólares): ");
+    scanf("%f", &pib1);
+
+    printf("Digite o Número de Pontos Turísticos: ");
+    scanf("%d", &pontos_turisticos1);
+
+    printf("\n--- DADOS DO PAÍS 2 ---\n");
+
+    printf("Digite o nome do País: ");
+    scanf(" %[^\n]", pais2);
+
+    printf("Digite a População: ");
+    scanf("%d", &populacao2);
+
+    printf("Digite a Área (em km²): ");
+    scanf("%f", &area2);
+
+    printf("Digite o PIB (em dólares): ");
+    scanf("%f", &pib2);
+
+    printf("Digite o Número de Pontos Turísticos: ");
+    scanf("%d", &pontos_turisticos2);
+
+    // Cálculos (evitando divisão por zero)
+    if (area1 > 0) {
+        densidade1 = (float)populacao1 / area1;
+    }
+    if (populacao1 > 0) {
+        pib_per_capita1 = pib1 / (float)populacao1;
+    }
+    if (area2 > 0) {
+        densidade2 = (float)populacao2 / area2;
+    }
+    if (populacao2 > 0) {
+        pib_per_capita2 = pib2 / (float)populacao2;
+    }
+
+    printf("\n\n--- DADOS FINAIS COMPARATIVOS ---\n");
+
+    // Comparação de atributos e pontos
+    printf("\n--- RESULTADO DA DISPUTA ---\n");
+
+    // População
+    if (populacao1 > populacao2) {
+        printf("População: %s vence!\n", pais1);
+        pontos_pais1++;
+    } else if (populacao2 > populacao1) {
+        printf("População: %s vence!\n", pais2);
+        pontos_pais2++;
+    } else {
+        printf("População: Empate!\n");
+    }
+
+    // Área
+    if (area1 > area2) {
+        printf("Área: %s vence!\n", pais1);
+        pontos_pais1++;
+    } else if (area2 > area1) {
+        printf("Área: %s vence!\n", pais2);
+        pontos_pais2++;
+    } else {
+        printf("Área: Empate!\n");
+    }
+
+    // PIB
+    if (pib1 > pib2) {
+        printf("PIB: %s vence!\n", pais1);
+        pontos_pais1++;
+    } else if (pib2 > pib1) {
+        printf("PIB: %s vence!\n", pais2);
+        pontos_pais2++;
+    } else {
+        printf("PIB: Empate!\n");
+    }
+
+    // Pontos Turísticos
+    if (pontos_turisticos1 > pontos_turisticos2) {
+        printf("Pontos Turísticos: %s vence!\n", pais1);
+        pontos_pais1++;
+    } else if (pontos_turisticos2 > pontos_turisticos1) {
+        printf("Pontos Turísticos: %s vence!\n", pais2);
+        pontos_pais2++;
+    } else {
+        printf("Pontos Turísticos: Empate!\n");
+    }
+
+    // Densidade
+    if (densidade1 > densidade2) {
+        printf("Densidade: %s vence!\n", pais1);
+        pontos_pais1++;
+    } else if (densidade2 > densidade1) {
+        printf("Densidade: %s vence!\n", pais2);
+        pontos_pais2++;
+    } else {
+        printf("Densidade: Empate!\n");
+    }
+
+    // PIB per Capita
+    if (pib_per_capita1 > pib_per_capita2) {
+        printf("PIB per Capita: %s vence!\n", pais1);
+        pontos_pais1++;
+    } else if (pib_per_capita2 > pib_per_capita1) {
+        printf("PIB per Capita: %s vence!\n", pais2);
+        pontos_pais2++;
+    } else {
+        printf("PIB per Capita: Empate!\n");
+    }
+
+    // Placar Final
+    printf("\n\n--- PLACAR FINAL --- \n");
+    printf("%s: %d Ponto(s)\n", pais1, pontos_pais1);
+    printf("%s: %d Ponto(s)\n", pais2, pontos_pais2);
+
+    if (pontos_pais1 > pontos_pais2) {
+        printf("\nO GRANDE VENCEDOR É: %s!\n", pais1);
+    } else if (pontos_pais2 > pontos_pais1) {
+        printf("\nO GRANDE VENCEDOR É: %s!\n", pais2);
+    } else {
+        printf("\nA DISPUTA TERMINOU EM EMPATE!\n");
+    }
+
+    // Resumo dos Dados
+    printf("\n--- %s (Resumo) ---\n", pais1);
+    printf("População: %d habitantes\n", populacao1);
+    printf("Área: %.2f km²\n", area1);
+    printf("PIB: $%.2f\n", pib1);
+    printf("Pontos Turísticos: %d\n", pontos_turisticos1);
+    printf("-> Densidade Populacional: %.2f hab/km²\n", densidade1);
+    printf("-> PIB per Capita: $%.2f\n", pib_per_capita1);
+
+    printf("\n--- %s (Resumo) ---\n", pais2);
+    printf("População: %d habitantes\n", populacao2);
+    printf("Área: %.2f km²\n", area2);
+    printf("PIB: $%.2f\n", pib2);
+    printf("Pontos Turísticos: %d\n", pontos_turisticos2);
+    printf("-> Densidade Populacional: %.2f hab/km²\n", densidade2);
+    printf("-> PIB per Capita: $%.2f\n", pib_per_capita2);
+
+    return 0;
+}
