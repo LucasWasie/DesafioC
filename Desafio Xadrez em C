@@ -3,7 +3,6 @@
 
 /*Programado por Lucas Wasielewski da Silva*/
 
-// --- Requisito: Constantes ---
 #define MOVIMENTOS_TORRE 5
 #define MOVIMENTOS_RAINHA 8
 #define MOVIMENTOS_BISPO 5
