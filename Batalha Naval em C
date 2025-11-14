@@ -1,0 +1,38 @@
+// Por Lucas Wasielewski da Silva
+#include <stdio.h>
+
+#define TAM 10
+
+int main() {
+    int tabuleiro[TAM][TAM] = {0};
+
+    // POSICIONAMENTO DOS 4 NAVIOS
+
+    // 1) Navio horizontal (tamanho 4) na linha 2
+    for (int i = 0; i < 4; i++)
+        tabuleiro[2][i] = 3;
+
+    // 2) Navio vertical (tamanho 4) na coluna 6
+    for (int i = 0; i < 4; i++)
+        tabuleiro[i][6] = 3;
+
+    // 3) Navio diagonal ↘ (tamanho 4)
+    for (int i = 0; i < 4; i++)
+        tabuleiro[4 + i][1 + i] = 3;
+
+    // 4) Navio diagonal ↙ (tamanho 4)
+    for (int i = 0; i < 4; i++)
+        tabuleiro[1 + i][8 - i] = 3;
+
+    // EXIBIÇÃO DO TABULEIRO
+    
+    printf("=== TABULEIRO 10x10 ===\n\n");
+
+    for (int i = 0; i < TAM; i++) {
+        for (int j = 0; j < TAM; j++)
+            printf("%d ", tabuleiro[i][j]);
+        printf("\n");
+    }
+
+    return 0;
+}
